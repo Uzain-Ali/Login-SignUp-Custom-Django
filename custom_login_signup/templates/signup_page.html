@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"/>
+
+    <title>SignUp Page</title>
+</head>
+<body>
+
+    <div class="container my-5">
+        <div class="row justify-content-center"> 
+            <div class="col-md-6 col-xm-12">
+                <h1 class="text-center text-white bg-dark p-2">Sign Up</h1>
+                    <form action="" method="post" class="card p-2">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="fname">First Name</label>
+                            <input type="text" class="form-control" id="fname" autocomplete="off" placeholder="Enter First Name" name="fname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lname">Last Name</label>
+                            <input type="text" class="form-control" id="lname" autocomplete="off" placeholder="Enter Last Name" name="lname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="email" autocomplete="off" placeholder="Enter Email" name="email" required>
+                        </div>
+                        <div class="form-group d-flex justify-content-between">
+                            <label for="gender">Gender</label>
+                            <input type="radio" class="" id="male" autocomplete="off" value="male" name="gender" required>
+                            <label><b>Male</b></label>
+                            <input type="radio" class="" id="female" autocomplete="off" value="female" name="gender" required>
+                            <label><b>Female</b></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" autocomplete="off" placeholder="Enter Password" name="password"  onchange="form.cpassword.pattern=this.value" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpassword">Confirm Password</label>
+                            <input type="password" class="form-control" id="cpassword" autocomplete="off" placeholder="Enter Confirm Password" name="cpassword" pattern=""  required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-success my-3" name="signup">Sign Up</button>
+                        {% if messages %}
+                        {% for result in messages %}
+                        <b>{{result}}</b>
+                        {% endfor %}
+                        {% endif %}
+                    </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
