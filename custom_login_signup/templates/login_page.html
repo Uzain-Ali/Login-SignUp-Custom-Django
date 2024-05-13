@@ -7,24 +7,25 @@
     <title>Login Page</title>
 </head>
 <body>
+    {% include 'nav-bar.html' %}
     <div class="container my-5">
         <div class="row justify-content-center ">
             <div class="col-md-6 col-xm-12">
                 <h1 class="text-center bg-dark p-2 text-white">Login</h1>
-                    <form action="" method="post" class="card p-2">
+                    <form action="{% url 'login' %}" method="post" class="card p-2">
                         {% csrf_token %}
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control" id="email" autocomplete="off" placeholder="Enter First Name" name="email">
+                            <input type="text" class="form-control" id="email" autocomplete="off" placeholder="Enter First Name" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" autocomplete="off" placeholder="Enter Password" name="password">
+                            <input type="password" class="form-control" id="password" autocomplete="off" placeholder="Enter Password" name="password" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary w-100 btn-success my-3" name="login">Login</button>
-                        {% if messages %}
+                        {% if messages.errors %}
                         {% for result in messages %}
                         <b>{{result}}</b>
                         {% endfor %}

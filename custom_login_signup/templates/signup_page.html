@@ -8,7 +8,7 @@
     <title>SignUp Page</title>
 </head>
 <body>
-
+    {% include 'nav-bar.html' %}
     <div class="container my-5">
         <div class="row justify-content-center"> 
             <div class="col-md-6 col-xm-12">
@@ -43,6 +43,7 @@
                             <input type="password" class="form-control" id="cpassword" autocomplete="off" placeholder="Enter Confirm Password" name="cpassword" pattern=""  required>
                         </div>
                         <button type="submit" class="btn btn-primary w-100 btn-success my-3" name="signup">Sign Up</button>
+                        <a href="{% url 'login' %}">Already a user</a>
                         {% if messages %}
                         {% for result in messages %}
                         <b>{{result}}</b>
